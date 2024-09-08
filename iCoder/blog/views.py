@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def blogHome(request):
-    return HttpResponse("HIIIII from blogHome")
+    return render(request, 'blog/blogHome.html')
 
 def blogPost(request, slug):
-    return HttpResponse(f"HIIIII from blogPost: {slug}")
+    return render(request, 'blog/blogPost.html')
