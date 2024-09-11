@@ -106,14 +106,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="\login" method="post">
+          {% csrf_token %}
           <div class="mb-3">
-            <label for="loginusername" class="form-label">UserName</label>
+            <label for="username" class="form-label">UserName</label>
             <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="name@example.com" required>
           </div>
           <div class="mb-3">
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter your Password" required>
+            <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your Password" required>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
