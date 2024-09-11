@@ -34,6 +34,9 @@ def contact(request):
 
 def search(request):
     query = request.GET['query']
-    allPosts = Post.objects.filter(title__icontains=query)
-    params = {"allPosts" : allPosts}
+    if len(query)>78:
+        allPosts = []
+    else:
+        allPosts = Post.objects.filter(title__icontains=query)
+    params = {"allPosts" : allPosts, "query":query}
     return render(request,"home/search.html", params)
