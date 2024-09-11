@@ -38,5 +38,7 @@ def search(request):
         allPosts = []
     else:
         allPosts = Post.objects.filter(title__icontains=query)
+    if allPosts.count() == 0:
+        messages.error(request, "No search result found please refine your query")
     params = {"allPosts" : allPosts, "query":query}
     return render(request,"home/search.html", params)
