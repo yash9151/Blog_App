@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 from django.shortcuts import render, HttpResponse
 
-# Create your views here.
+# HTML Pages
 def home(request):
     return render(request, "home/home.html")
 
@@ -48,6 +48,7 @@ def search(request):
     params = {"allPosts" : allPosts, "query":query}
     return render(request,"home/search.html", params)
 
+# Authentication APIs
 def handleSignup(request):
     if request.method =="POST":
         # Get the post parameters
