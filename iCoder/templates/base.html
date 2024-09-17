@@ -32,14 +32,27 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <a href="/admin" role="button" target="_blank" class="btn btn-outline-success m-2">Admin Panel</a>
-                  <!-- Button to trigger Signup modal -->
-                  <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    Login 
-                  </button>
-                  <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#signupModal">
-                    SignUp 
-                  </button>
+            {% comment %} <a href="/admin" role="button" target="_blank" class="btn btn-outline-success m-2">Admin Panel</a> {% endcomment %}
+            {% if user.is_authenticated %} 
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome {{request.user}} !
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+              <!-- Button to trigger Signup modal -->
+               <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Login 
+              </button>
+              <button type="button" class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+                SignUp 
+              </button>
+            {% endif %}
           </div>
         </div>
       </nav>
