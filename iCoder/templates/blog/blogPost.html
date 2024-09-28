@@ -5,6 +5,7 @@
 
 {% block body %}
   {% load humanize %}
+  {% load extras %}
   <div class="container my-3">
     <h2 class="blog-post-title">{{ post.title }}</h2>
     <p class="blog-post-meta">{{ post.timeStamp }} by 
@@ -61,6 +62,13 @@
               </form>
             </div>
           </div>
+          <div class="replies bg-danger my-2">
+                {% for reply in replyDict|get_val:comment.sno %}
+                    {{reply}}
+                    <br>
+                {% endfor %}
+          </div>
+
         </div>
       </div>
     </div>
